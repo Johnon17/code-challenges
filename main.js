@@ -14,3 +14,10 @@ function setAlarm(employed, vacation) {
 function setAlarm(employed, vacation) {
   return (employed && !vacation) ? true : false;
 }
+
+//Very simple, given an integer or a floating-point number, find its opposite.
+
+//Solution
+function opposite(number) {
+  return -number
+}
