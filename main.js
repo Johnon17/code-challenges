@@ -76,3 +76,12 @@ function nbYear(p0, percent, aug, p) {
   //Return number of years
   return n
 }
+
+
+//Given a string return that string with the first letter of all words capitalised
+
+//My solution
+// .split("") gives me an array of the words, map creates an array based on the function being applied to each element of the array, using .slice(1) sticks the rest of the word onto the end of the capital letter each Time, .join(" ") brings it all back together with spaces between the words committed to the new array by .map()
+String.prototype.toJadenCase = function () {
+  return this.split(' ').map(item => item[0].toUpperCase() + item.slice(1)).join(' ')
+}
