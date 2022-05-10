@@ -92,3 +92,35 @@ String.prototype.toJadenCase = function () {
 function filter_list(l) {
   return l.filter(e => typeof e === "number")
 }
+
+
+// Create a function that returns the sum of the two lowest positive numbers given an array of minimum 4 positive integers.No floats or non - positive integers will be passed. I decided to allow for negative numbers by filtering them out
+function sumTwoSmallestNumbers(numbers) {
+  let arr = numbers.filter(e => e >= 0)
+  arr = arr.sort((a, b) => a - b)
+
+  return arr[0] + arr[1]
+}
+
+
+//Given a set of arrays in the format [got on, got off] calculate how many people on the bus when the last stop is reached
+
+//My Solution
+var number = function (busStops) {
+  //set counter
+  let peopleOnBus = 0
+  //iterate through all elements of the arrya
+  busStops.forEach(e => {
+    //people onboard = already on + e[0](got on)- e[1](got off)
+    peopleOnBus = peopleOnBus + e[0] - e[1]
+  })
+  //return peopleOnBus
+  return peopleOnBus
+}
+
+//Replace numbers in a string < 5 to 0 and >5 to 1
+
+//My solution
+function fakeBin(str) {
+  return str.split('').map(e => e < 5 ? 0 : 1).join('');
+}
