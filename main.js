@@ -85,3 +85,10 @@ function nbYear(p0, percent, aug, p) {
 String.prototype.toJadenCase = function () {
   return this.split(' ').map(item => item[0].toUpperCase() + item.slice(1)).join(' ')
 }
+
+// Given an array of integers in string and number typeof, return only the number type elements of the array
+
+//My solution
+function filter_list(l) {
+  return l.filter(e => typeof e === "number")
+}
