@@ -56,3 +56,23 @@ let squareSum = (arr) => arr.reduce((accumulator, current) => accumulator + Math
 function descendingOrder(n) {
   return parseInt(String(n).split('').sort().reverse().join(''))
 }
+
+//In a small town the population is p0 = 1000 at the beginning of a year. The population regularly increases by 2 percent per year and moreover 50 new inhabitants per year come to live in the town. How many years does the town need to see its population greater or equal to p = 1200 inhabitants?. Create a function if given population, percent increase, movers in and target pop that will show number of years taken
+
+//My Solution
+function nbYear(p0, percent, aug, p) {
+  //Create a years counter outside the loop
+  let n = 0
+  //Turn percent into a value you can work with 
+  percent = percent / 100
+
+  //Loop while less than given targer population
+  while (p > p0) {
+    //Make p0 = the latest incremental increase but ensure to Math.floor - no fractions of people
+    p0 = Math.floor(p0 * (1 + percent) + aug)
+    //Add another year to the counter each time
+    n += 1
+  }
+  //Return number of years
+  return n
+}
