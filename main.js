@@ -124,3 +124,31 @@ var number = function (busStops) {
 function fakeBin(str) {
   return str.split('').map(e => e < 5 ? 0 : 1).join('');
 }
+
+
+//Create a function which answers the question "Are you playing banjo?". If your name starts with the letter "R" or lower case "r", you are playing banjo!
+//My Solution
+function areYouPlayingBanjo(name) {
+  return name.charAt(0) === "r" || name.charAt(0) === "R" ? `${name} plays banjo` : `${name} does not play banjo`;
+}
+
+//Check to see if a string has the same amount of 'x's and 'o's.The method must return a boolean and be case insensitive.The string can contain any char.
+//My solution
+function XO(str) {
+  //set counters
+  let xCount = 0
+  let oCount = 0
+  //convert to lower case
+  str = str.toLowerCase()
+  //split into an array for count
+  let list = str.split("")
+  //Count occurrence of each
+  list.forEach(e => {
+    if (e === "x") {
+      xCount += 1
+    } else if (e === "o")
+      oCount += 1
+  })
+  //return required response
+  return (oCount === xCount ? true : false)
+}
