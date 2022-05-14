@@ -17,3 +17,6 @@ function solution(str, ending) {
     return false
   } else return true
 }
+
+//Upon completion discovered a method exists that does this job much more suscintly
+let quick = (str, end) => str.endsWith(end)
