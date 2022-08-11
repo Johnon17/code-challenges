@@ -152,3 +152,71 @@ function XO(str) {
   //return required response
   return (oCount === xCount ? true : false)
 }
+
+//Calculate the points earned from 10 fixtures with results presented "x:y" 
+// My solution
+function points(games) {
+  //set counter inside function but outside the loop
+  let count = 0
+  //set up to iterate through array of games results
+  games.forEach(e => {
+    //get home(x) and away(y) scores
+    let x = e.charAt(0)
+    let y = e.charAt(2)
+    //compare and attribute correct number of points to the count
+    if (x > y) {
+      count += 3
+      console.log(count)
+    } else if (x === y) {
+      count += 1
+      console.log(count)
+    }
+  })
+  //when loop is complete return the count which was defined outside the loop and held the points earned value
+  return count
+}
+
+// Create a function that takes an integer as an argument and returns "Even" for even numbers or "Odd" for odd numbers.
+//My solution
+function even_or_odd(number) {
+  return number % 2 === 0 ? "Even" : "Odd"
+}
+
+//Take in two values of rock, paper or scissors and return whether p1 wins, p2 wins or dra2
+//My solution
+const rps = (p1, p2) => {
+  if (p1 === "scissors" && p2 === "paper" || p1 === "paper" && p2 === "rock" || p1 === "rock" && p2 === "scissors") {
+    return "Player 1 won!"
+  } else if (p2 === "scissors" && p1 === "paper" || p2 === "paper" && p1 === "rock" || p2 === "rock" && p1 === "scissors") {
+    return "Player 2 won!"
+  } else return "Draw!"
+};
+//AWESOME SOLUTION
+const rps = (p1, p2) => {
+  if (p1 === p2) return "Draw!";
+  let rules = {
+    rock: "scissors",
+    paper: "rock",
+    scissors: "paper"
+  };
+  //Utilising the array created we locate the losing answer to each utilising the p1 choice to check if p2 equals the choice which would lose against it
+  if (p2 === rules[p1]) {
+    return "Player 1 won!";
+  }
+  //Otherwise p2 must have won
+  else {
+    return "Player 2 won!";
+  }
+};
+
+//Write a function that takes in distance to travel, miles per gallon and gallons of fuel. Return true if possible to travel the distance and false if not
+//Solution A
+const zeroFuel = (distanceToPump, mpg, fuelLeft) => {
+  if (distanceToPump / mpg <= fuelLeft) {
+    return true
+  } else return false
+};
+//Solution B
+const zeroFuel = (distanceToPump, mpg, fuelLeft) => {
+  return distanceToPump / mpg <= fuelLeft ? true : false
+};
