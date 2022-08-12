@@ -220,3 +220,65 @@ const zeroFuel = (distanceToPump, mpg, fuelLeft) => {
 const zeroFuel = (distanceToPump, mpg, fuelLeft) => {
   return distanceToPump / mpg <= fuelLeft ? true : false
 };
+
+//Code to control traffic lights which returns the next colour it should change to given the colour that was the input
+//My solution
+function updateLight(current) {
+
+  switch (current) {
+    case "green":
+      return "yellow"
+      break;
+    case "yellow":
+      return "red"
+      break;
+    case "red":
+      return "green"
+      break;
+  }
+}
+
+//Multiply 2 numbers
+//My solution
+let multiply = (n1, n2) => {
+  return n1 * n2
+}
+//Return can be implied here with removal of brackets
+let multiply = (n1, n2) => n1 * n2;
+
+//Given a two values x and y find the yth power closest and higher than x (given 12385 and 3 - we want the value of the closest but higher cube than 12385)
+//My solution
+function findNextPower(val, pow_) {
+  //declare i our "counter" and nextPerPow which will store our value
+  let nextPerfPow = 0
+  let i = 0
+
+  //Utilise while loop so that we will increase i on each loop until we surpass the val when making i to the power of pow_
+  while (nextPerfPow <= val) {
+    nextPerfPow = Math.pow(i, pow_)
+    i++
+  }
+  //return the desired value
+  return nextPerfPow
+}
+
+//Create a function that takes an array of letters, and combines them into words in a sentence.Shorter words will have an empty string in the place once the word has already been mapped out (see the last element in the last element in the array).
+//My solution
+function arrAdder(arr) {
+  //Create a string that will allow us to store our characters
+  let sentence = "";
+  //while i is less than the length of the first array within the object - this can be used as it will have indexes for " " if it is not the longest word
+  for (var i = 0; i < arr[0].length; i++) {
+    //while less than the length of the object array (number of arrays in the array)
+    for (var j = 0; j < arr.length; j++) {
+      //add the char at position i in each array (using j to jump along) this takes every char at the same position in each array and adds it to the sentence in sequence, it doesnt grab anything from the undefined spots - nothing joins our 'sentence' it just cycles through
+      sentence += arr[j][i];
+    }
+    //when we complete the grabbing we add a space then onto the next loop of the external loop
+    sentence += " ";
+
+  }
+  //return the sentence with the last added space trimmed off the end
+  return sentence.trim();
+
+}
