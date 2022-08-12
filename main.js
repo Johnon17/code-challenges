@@ -282,3 +282,7 @@ function arrAdder(arr) {
   return sentence.trim();
 
 }
+
+//You need two bullets to kill each dragon, will you survive?
+//My solution
+let hero = (bullets, dragons) => bullets / 2 >= dragons ? true : false
