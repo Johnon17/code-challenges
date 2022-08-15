@@ -286,3 +286,41 @@ function arrAdder(arr) {
 //You need two bullets to kill each dragon, will you survive?
 //My solution
 let hero = (bullets, dragons) => bullets / 2 >= dragons ? true : false
+
+//Get a boolean and return "Yes" if true and "No" for false
+let boolToWord = (bool) => bool ? "Yes" : "No"
+
+//Remove extra occurrences of a number if it occurs more than n times
+//My first attempt
+function deleteNth(arr, n) {
+  let counter = 0
+  arr.forEach(e => {
+    for (let x = 0; x < arr.length; x++) {
+      if (e === arr[x]) {
+        counter++
+      }
+      if (counter > n) {
+        arr.splice(x, 1)
+      }
+    }
+    counter = 0
+  })
+  return arr
+}
+//Final Attempt but fails final test!!
+function deleteNth(arr, n) {
+  let counter = 0
+
+  arr.forEach(e => {
+    for (let x = 0; x < arr.length; x++) {
+      if (e === arr[x]) {
+        counter++
+      }
+      if (counter > n) {
+        arr.splice(x, 1)
+      }
+    }
+    counter = 0
+  })
+  return arr
+}
