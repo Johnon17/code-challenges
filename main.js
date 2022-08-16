@@ -324,3 +324,43 @@ function deleteNth(arr, n) {
   })
   return arr
 }
+
+//Return false if a word contains duplicate letters, true if all characters are unique
+//My solution
+function isIsogram(str) {
+  //convert the str to lowercase
+  str = str.toLowerCase()
+  let count = 0
+  //Set up to go through all chars
+  for (const c of str) {
+    //for loop to allow comparison against all chars
+    for (let i = 0; i < str.length; i++) {
+      //if char is matched by one in the string add one to the count (this will of course be a minimum of one as the char definitely exists in the string)
+      if (c === str[i]) {
+        count++
+      }
+    }
+    //if only count one it means there were no duplicates so you should reset the counter to allow it return zero at end of comparison
+    if (count === 1) {
+      count = 0
+    }
+  }
+  //When all comparison done if count shows zero you return true since there are no duplicates
+  if (count === 0) {
+    return true
+  } else {
+    return false
+  }
+}
+//BETTER SOLUTION !----INTERESTING DISCOVERY OF new Set() AND .size
+function isIsogram(str) {
+  str = str.toLowerCase()
+
+  let newStr = new Set(str)
+
+  if (newStr.size === str.length) {
+    return true
+  } else {
+    return false
+  }
+}
